@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 :root {
     --cor-fundo-claro: #f2fafb;     /* Fundo Principal (Branco/Muito Claro) */
-    --cor-azul-escuro: #2548a1;    /* Principal (Hero, Títulos) */
+    --cor-azul-escuro: #0269c0;    /* Principal (Hero, Títulos) */
     --cor-marrom-escuro: #8d6b22;  /* Destaque Escuro (Rodapé) */
     --cor-amarelo-dourado: #d19f2f; /* CTA/Títulos de Destaque */
-    --cor-azul-claro: #6a9cf5;     /* Fundo de Seção Secundária */
+    --cor-azul-claro: #b5d4f7;     /* Fundo de Seção Secundária */
     --cor-texto-padrao: #333;
 }
 
@@ -593,12 +593,18 @@ footer p {
     }
 }
 
+.li-pa{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 /* ----------------------------------- */
 /* Seção de Parcerias (Estilo Específico) */
 /* ----------------------------------- */
 
 .partners-section {
-    background-color: #e3f2fd; /* Azul bem clarinho do fundo geral (similar à imagem) */
+    background-color: #e6f2ff; /* Azul bem clarinho do fundo geral (similar à imagem) */
     padding: 4rem 0;
     text-align: center;
 }
