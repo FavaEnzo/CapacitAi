@@ -1,0 +1,35 @@
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <div class="login-container">
+            <div class="left-panel">
+                <div class="left-content">
+                    <h1 class="hero-logo" style="font-size: 3rem;">Capacit<span>Aí</span></h1>
+                    <p>Bem-vindo de volta!</p>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="form-box">
+                    <h2 style="margin-bottom: 20px; color: var(--cor-azul-escuro);">Entrar</h2>
+
+                    <form onsubmit="event.preventDefault(); alert('Login simulado com sucesso!');">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Digite seu email" required>
+
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+                        <button type="submit" class="btn-login">Login</button>
+
+                        <p class="register-text" style="margin-top: 15px; font-size: 0.9rem;">
+                            Não tem conta? 
+                            <a href="#" id="link-para-cadastro" style="color: var(--cor-azul-escuro); font-weight: bold;">Criar conta</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,13 +3,21 @@
     --cor-fundo-claro: #f2fafb;     /* Fundo Principal (Branco/Muito Claro) */
     --cor-azul-escuro: #0269c0;    /* Principal (Hero, Títulos) */
     --cor-marrom-escuro: #8d6b22;  /* Destaque Escuro (Rodapé) */
-    --cor-amarelo-dourado: #d19f2f; /* CTA/Títulos de Destaque */
+    --cor-amarelo-dourado: #ffaf37; /* CTA/Títulos de Destaque */
     --cor-azul-claro: #b5d4f7;     /* Fundo de Seção Secundária */
     --cor-texto-padrao: #333;
 }
 
+.contact-title{
+    font-size: 1.2rem;
+    color: var(--cor-azul-escuro);
+    margin-bottom: 1rem;
+}
 
-
+.Ig{
+    font-size: 1.20rem;
+    color: var(--cor-texto-padrao)
+}
 /* ----------------------------------- */
 /* 2. Reset, Tipografia e Utilitários  */
 /* ----------------------------------- */
@@ -93,7 +101,7 @@ header .container {
     color: #fff; /* Parte "Capacit" branca */
 }
 
-.hero-logo span {
+.hero-logo span, .footer-logo span {
     color: var(--cor-amarelo-dourado); /* Parte "Ai" amarela */
 }
 
@@ -130,23 +138,19 @@ header .container {
     position: relative;
 }
 
-.illustration-circle {
-    position: relative;
-    width: 450px;
-    height: 450px;
-    background-color: #ffc860; /* Círculo Amarelo claro da imagem */
-    border-radius: 50%;
-    display: flex;
-    align-items: flex-end; /* Alinha a imagem na base do círculo */
-    justify-content: center;
-}
-
 .hero-img-file {
     /* Ajustes para a imagem PNG que você vai colocar */
-    width: 90%; 
+    width: 100%; 
     height: auto;
     z-index: 2; /* Fica na frente do círculo */
-    margin-bottom: -20px; /* Pequeno ajuste para pés tocarem a borda se precisar */
+}
+
+.target-img{
+    /* Ajustes para a imagem PNG que você vai colocar */
+    width: 100%; 
+    height: auto;
+    z-index: 2; /* Fica na frente do círculo */
+
 }
 
 /* --- Onda Curva no Rodapé do Hero --- */
@@ -191,13 +195,22 @@ header .container {
     .illustration-circle {
         width: 300px;
         height: 300px;
+        margin-bottom: 10px;
     }
     
     .hero-logo {
         font-size: 4rem;
     }
 }
+.footer-logo{
+    font-family: 'Breathing', cursive; /* Fonte manuscrita */
+    font-size: 5rem; /* Bem grande */
+    font-weight: normal;
 
+    line-height: 1.1;
+    color: #fff; /* Parte "Capacit" branca */
+
+}
 /* ... (Variáveis :root permanecem aqui) ... */
 
 /* ----------------------------------- */
@@ -314,8 +327,9 @@ nav ul li a:hover {
 }
 
 .target-info p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     line-height: 1.7;
+        margin-top: 0.5rem;
 }
 
 .target-list {
@@ -342,10 +356,14 @@ nav ul li a:hover {
 .highlight-box {
     background-color: var(--cor-azul-escuro);
     color: var(--cor-fundo-claro); /* Texto claro no fundo escuro */
-    padding: 1.5rem;
+    padding: 5px;
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 600;
+    display:flex;
+    justify-content: center;
+    max-width: 500px;
+  justify-self: center;
 }
 
 /* Estilos da Ilustração (Simulação da Imagem) */
@@ -394,7 +412,7 @@ nav ul li a:hover {
 }
 
 .service-grid h3 {
-    color: var(--cor-azul-escuro); 
+    color: #0097b2; 
     margin-bottom: 3rem;
     font-size: 2.5rem; 
 }
@@ -442,7 +460,7 @@ nav ul li a:hover {
 /* ----------------------------------- */
 .contact-section {
     background-color: var(--cor-fundo-claro);
-    padding-bottom: 5rem;
+    padding-bottom: 0rem;
 }
 
 .contact-section h3 {
@@ -730,14 +748,29 @@ footer p {
 
 /* Estilo do Logo no Rodapé */
 .footer-logo {
-    margin-bottom: 2rem;
-    align-self: flex-start;
-    padding-top: 1rem;
+    display: flex;              /* Coloca os itens lado a lado */
+    align-items: center;        /* Alinha verticalmente no centro */
+    justify-content: flex-start; /* Alinha à esquerda (acima do card branco) */                 /* Espaço entre a imagem e o texto */
+    margin-bottom: 1rem;        /* Espaço abaixo da logo antes do card branco */
+    width: 100%;                /* Garante que ocupe a largura disponível */
+    max-width: 900px;           /* Mesma largura do wrapper de info para alinhar visualmente */
+    font-size: 35px;
+    margin-left: auto;          /* Centraliza o bloco todo na tela */
+    margin-right: auto;
+}
+
+.footer-logo h1{
+    display: flex;
+    margin-bottom: -1rem;
+    justify-content: flex-start;
+    margin-left: 10px;
 }
 
 .logo-img-footer {
-    /* Ajuste o tamanho da sua imagem de logo se necessário */
-    max-height: 80px; 
+    max-height: 80px;           /* Tamanho da imagem */
+    width: auto;
+    object-fit: contain;
+    margin: 0;                  /* Remove margens antigas que podem estar atrapalhando */
 }
 
 
@@ -762,40 +795,65 @@ footer p {
     min-width: 55%; /* Ocupa um pouco mais de espaço */
 }
 
-.contact-title {
-    color: var(--cor-azul-escuro);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-}
-
 .contact-details {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Coloca os blocos um abaixo do outro */
+    gap: 1.5rem; /* Espaçamento entre cada item (Telefone, Email, etc.) */
     text-align: left;
-    gap: 2rem;
-    font-size: 0.95rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start; /* Alinha o ícone e o texto ao topo */
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.detail-icon {
+    color: var(--cor-amarelo-dourado); /* Cor do Ícone */
+    font-size: 1.5rem;
+    margin-right: 15px;
+    margin-top: 3px;
+    min-width: 30px; /* Garante alinhamento */
 }
 
 .detail-label {
     font-weight: 600;
-    margin-top: 0.5rem;
+    margin-top: 0; /* Reseta margem anterior */
+    display: block; /* Garante que o label ocupe toda a linha antes do valor */
+    color: var(--cor-azul-escuro);
 }
+
 .detail-value {
     font-weight: normal;
+    display: block;
+    color: var(--cor-texto-padrao);
+}
+
+/* Estilo para a lista de endereço */
+.address-lines p {
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* --- Horário de Funcionamento --- */
+/* --- Horário de Funcionamento --- */
 .schedule-box {
-    min-width: 35%; /* Ocupa o espaço restante */
+    min-width: 35%;
     text-align: left;
+    background-color: #015197; /* Azul Escuro Ligeiramente mais claro que o fundo */
+    padding: 3rem 2rem; /* Mais espaçamento */
+    border-radius: 15px;
+    color: var(--cor-fundo-claro); /* Texto branco */
 }
 
 .schedule-title {
-    color: var(--cor-amarelo-dourado); /* Título em Amarelo/Dourado */
-    font-size: 1.3rem;
-    font-weight: 700;
+    color: var(--cor-amarelo-dourado);
+    font-size: 1.5rem;
+    font-weight: 800;
     margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Linha divisória branca suave */
 }
 
 .schedule-box ul {
@@ -804,14 +862,16 @@ footer p {
 }
 
 .schedule-box ul li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    margin-bottom: 0.7rem; /* Mais espaço entre os dias */
+    font-size: 1.05rem;
+    font-weight: 500;
+    /* Destaque para o dia (Opcional: use uma cor mais clara para o horário) */
 }
 
 /* --- Barra de Direitos Autorais --- */
 .copyright-bar {
     width: 100%;
-    background-color: var(--cor-marrom-escuro); /* Cor de destaque (marrom/bronze) */
+    background-color: rgb(10, 7, 55); /* Cor de destaque (marrom/bronze) */
     text-align: center;
     padding: 0.8rem 0;
     font-size: 0.85rem;
@@ -820,9 +880,12 @@ footer p {
 
 /* --- Responsividade Mobile (Footer) --- */
 @media (max-width: 768px) {
-    .footer-layout {
-        align-items: center;
-    }
+   .footer-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* Centraliza tudo horizontalmente */
+    padding-bottom: 2rem;
+}
     
     .contact-info-wrapper {
         flex-direction: column;
@@ -841,4 +904,120 @@ footer p {
         flex-direction: column;
         align-items: center;
     }
+}
+
+.modal {
+    display: none; /* Começa invisível */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo preto transparente */
+    backdrop-filter: blur(5px);
+}
+
+/* Conteúdo do Modal (A caixa branca) */
+.modal-content {
+    margin: 5% auto; /* Centraliza verticalmente */
+    width: 90%;
+    max-width: 900px; /* Largura máxima igual ao design original */
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    animation: fadeIn 0.4s;
+    background: transparent; /* O fundo vem do container de login */
+}
+
+/* Botão de Fechar (X) */
+.close-btn {
+    color: #333;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1001;
+    cursor: pointer;
+    background: rgba(255,255,255,0.7);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    background: #fff;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Ajustes para o auth.css dentro do modal (se necessário sobrescrever) */
+.login-container {
+    height: auto; /* Remove altura fixa de 100vh se houver */
+    min-height: 500px;
+    display: flex;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Painéis de Login/Register */
+.left-panel {
+    flex: 1;
+    background: var(--cor-azul-escuro);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 350px;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    background: var(--cor-amarelo-dourado);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: var(--cor-marrom-escuro);
+    color: #fff;
 }

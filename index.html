@@ -7,24 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <header>
-        <div class="container">
-            <h1 class="logo">CapacitaAí</h1>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#publico">Público Alvo</a></li>
-                    <li><a href="#servicos">O Que Oferecemos</a></li>
-                    <li><a href="#contato">Fale Conosco</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Abrir Menu">☰</button>
-        </div>
-    </header>
+    <!-- Placeholder para o cabeçalho -->
+    <div id="header-placeholder"></div>
+
+    <!-- Placeholder para o modal de login -->
+    <div id="login-placeholder"></div>
 
     <main>
-        <section id="inicio" class="hero">
+       <section id="inicio" class="hero">
     <div class="container">
         <div class="hero-wrapper">
             
@@ -52,7 +42,8 @@
                     
                     <div class="target-illustration">
                         <div class="illustration-placeholder">
-                            [ILUSTRAÇÃO: Pessoas Ajudando]
+                    <img src="fotos/foto2.png" alt="Jovens se apoiando" 
+                            class="target-img">
                             </div>
                     </div>
                     
@@ -107,7 +98,7 @@
             
             <div class="partner-card">
                 <div class="partner-logo-container">
-                    <img src="logo-inova.png" alt="Escola de Inovadores" class="partner-img"> 
+                    <img src="fotos/logo-inova.png" alt="Escola de Inovadores" class="partner-img"> 
                 </div>
                 <h4 class="partner-name">Escola de<br>Inovadores</h4>
                 <p class="partner-desc">Projeto<br>Governamental</p>
@@ -116,7 +107,7 @@
 
             <div class="partner-card">
                 <div class="partner-logo-container">
-                    <img src="logo-bradesco.png" alt="Fundação Bradesco" class="partner-img">
+                    <img src="fotos/logo-bradesco.png" alt="Fundação Bradesco" class="partner-img">
                 </div>
                 <h4 class="partner-name">Fundação<br>Bradesco</h4>
                 <p class="partner-desc">Projeto de<br>Empresa Privada</p>
@@ -125,7 +116,7 @@
 
             <div class="partner-card">
                 <div class="partner-logo-container">
-                    <img src="logo-qualifica.png" alt="Qualifica SP" class="partner-img">
+                    <img src="fotos/logo-qualifica.png" alt="Qualifica SP" class="partner-img">
                 </div>
                 <h4 class="partner-name">Qualifica SP</h4>
                 <p class="partner-desc">Projeto<br>Governamental</p>
@@ -135,54 +126,72 @@
         </div>
     </div>
         </section>
-    </main>
 
-<footer id="contato-footer">
-        <div class="container footer-layout">
-            
-            <div class="footer-logo">
-                <img src="logo.png" alt="CapacitaAí Logo" class="logo-img-footer">
-                <h1 class="hero-logo">CapacitAí</h1>
+        <!-- Seções adicionais do site (Público Alvo, Serviços, etc.) -->
+
+        <!-- Rodapé -->
+        <footer id="contato-footer">
+            <div class="container footer-layout">
+                <div class="footer-logo">
+                    <img src="fotos/logo.png" alt="CapacitaAí Logo" class="logo-img-footer">
+                    <h1 class="footer-logo">Capacit<span>Aí</span></h1>
+                </div>
+                <div class="contact-info-wrapper">
+<div class="contact-card">
+    <h4 class="contact-title">Entre em Contato:</h4>
+    
+    <div class="contact-details">
+        
+        <div class="detail-item">
+            <span class="detail-icon"></span> <div>
+                <span class="detail-label">Localização:</span>
+                <div class="address-lines">
+<a href="https://www.google.com/maps/place/Escola+Técnica+Estadual+Bartolomeu+Bueno+da+Silva+-+Anhanguera/@-23.4070073,-46.8781471,17z/data=!3m1!4b1!4m6!3m5!1s0x94cf1cf6ae8e05a7:0xc42f0d523b1d147b!8m2!3d-23.4070073!4d-46.8781471!16s%2Fg%2F11b7r_qhjb?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" class="detail-value">Av. Ten. Marques, s/n - Fazendinha, Santana de Parnaíba - SP, 06529-001</a>
+                </div>
             </div>
+        </div>
 
-            <div class="contact-info-wrapper">
-                
-                <div class="contact-card">
-                    <h4 class="contact-title">Contate-nos:</h4>
-                    <div class="contact-details">
-                        <div>
-                            <p class="detail-label">Rua:</p>
-                            <p>Av. Ten. Marques, s/n -</p>
-                            <p>Fazendinha, Santana de</p>
-                            <p>Parnaíba - SP</p>
-                        </div>
-                        
-                        <div>
-                            <p class="detail-label">Telefone: <span class="detail-value">(11) 123-4567</span></p>
-                            <p class="detail-label">Instagram: <span class="detail-value">@Capacita_ai</span></p>
-                            <p class="detail-label">Gmail: <span class="detail-value">prj.capacitaai@gmail.com</span></p>
-                        </div>
+        <div class="detail-item">
+            <span class="detail-icon"></span> <div>
+                <span class="detail-label">Telefone:</span>
+                <span class="detail-value">(11) 4156-1435</span>
+            </div>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-icon"></span> <div>
+                <span class="detail-label">Instagram:</span>
+                <a href="https://www.instagram.com/capacitai_?igsh=NDJtbGFudGw1eXJl" class="Ig">@capacitai_</a>
+            </div>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-icon"></span> <div>
+                <span class="detail-label">Gmail:</span>
+                <span class="detail-value">prj.capacitaai@gmail.com</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+                    <div class="schedule-box">
+                        <h4 class="schedule-title">Horário de Funcionamento</h4>
+                        <ul>
+                            <li>Seg: 08:00h – 12:30h</li>
+                            <li>Ter: 08:00h – 15:00h</li>
+                            <li>Qua: 08:00h – 12:30h</li>
+                            <li>Qui: 08:00h – 15:00h</li>
+                            <li>Sex: 08:00h – 15:00h</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="schedule-box">
-                    <h4 class="schedule-title">Horário de Funcionamento</h4>
-                    <ul>
-                        <li>Seg: 08:00h – 12:30h</li>
-                        <li>Ter: 08:00h – 15:00h</li>
-                        <li>Qua: 08:00h – 12:30h</li>
-                        <li>Qui: 08:00h – 15:00h</li>
-                        <li>Sex: 08:00h – 15:00h</li>
-                    </ul>
-                </div>
             </div>
-
-            
-        </div>
-        <div class="copyright-bar">
-            <p>&copy; 2025 Projeto Estudantil Capacita Aí. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+            <div class="copyright-bar">
+                <p>&copy; 2025 Projeto Estudantil CapacitAí. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
