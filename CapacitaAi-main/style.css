@@ -1,0 +1,833 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+:root {
+    --cor-fundo-claro: #f2fafb;     /* Fundo Principal (Branco/Muito Claro) */
+    --cor-azul-escuro: #0269c0;    /* Principal (Hero, Títulos) */
+    --cor-marrom-escuro: #8d6b22;  /* Destaque Escuro (Rodapé) */
+    --cor-amarelo-dourado: #d19f2f; /* CTA/Títulos de Destaque */
+    --cor-azul-claro: #b5d4f7;     /* Fundo de Seção Secundária */
+    --cor-texto-padrao: #333;
+}
+
+
+
+/* ----------------------------------- */
+/* 2. Reset, Tipografia e Utilitários  */
+/* ----------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; 
+    line-height: 1.6;
+    color: var(--cor-texto-padrao);
+    background-color: var(--cor-fundo-claro);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 5rem 0; /* Espaçamento padrão para seções */
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-azul-escuro);
+}
+
+/* ----------------------------------- */
+/* 3. Cabeçalho e Navegação            */
+/* ----------------------------------- */
+header {
+    background: var(--cor-fundo-claro);
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ----------------------------------- */
+/* 0. Importar Fonte Breathing         */
+/* ----------------------------------- */
+@font-face {
+    font-family: 'Breathing';
+    src: url('Breathing.ttf') format('truetype'); /* Certifique-se que o arquivo está na pasta */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ----------------------------------- */
+/* 4. Seção Principal (HERO - ATUALIZADO) */
+/* ----------------------------------- */
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem; /* Espaço entre texto e imagem */
+}
+
+/* --- Coluna de Texto --- */
+.hero-text {
+    flex: 1; /* Ocupa metade do espaço */
+    text-align: left; /* Alinhado à esquerda como na imagem */
+    max-width: 600px;
+}
+
+.hero-logo {
+    font-family: 'Breathing', cursive; /* Fonte manuscrita */
+    font-size: 5rem; /* Bem grande */
+    font-weight: normal;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    color: #fff; /* Parte "Capacit" branca */
+}
+
+.hero-logo span {
+    color: var(--cor-amarelo-dourado); /* Parte "Ai" amarela */
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    font-family: sans-serif; /* Fonte padrão limpa para o texto */
+}
+
+/* --- Botão "VAMOS" --- */
+.btn-hero {
+    background-color: #fff; /* Fundo Branco */
+    color: #000; /* Texto Preto/Escuro */
+    padding: 0.8rem 3.5rem;
+    border-radius: 50px; /* Borda bem arredondada (Pill shape) */
+    font-weight: 800; /* Texto bem grosso */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.btn-hero:hover {
+    transform: scale(1.05);
+}
+
+/* --- Coluna de Imagem --- */
+.hero-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Alinha a imagem à direita */
+    position: relative;
+}
+
+.hero-img-file {
+    /* Ajustes para a imagem PNG que você vai colocar */
+    width: 100%; 
+    height: auto;
+    z-index: 2; /* Fica na frente do círculo */
+}
+
+/* --- Onda Curva no Rodapé do Hero --- */
+.custom-shape-divider-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px; /* Altura da curva */
+}
+
+.custom-shape-divider-bottom .shape-fill {
+    fill: var(--cor-fundo-claro); /* A cor da próxima seção (branco gelo) */
+}
+
+/* --- Responsividade Mobile --- */
+@media (max-width: 992px) {
+    .hero-wrapper {
+        flex-direction: column; /* Um embaixo do outro */
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+        order: 1; /* Texto primeiro */
+    }
+
+    .hero-illustration {
+        order: 2;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .illustration-circle {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+    
+    .hero-logo {
+        font-size: 4rem;
+    }
+}
+
+/* ... (Variáveis :root permanecem aqui) ... */
+
+/* ----------------------------------- */
+/* ATUALIZAÇÃO DA LOGO                 */
+/* ----------------------------------- */
+
+.logo {
+    /* Aplica a fonte carregada acima */
+    font-family: 'Breathing', cursive; 
+    
+    /* Fontes manuscritas costumam ser menores, então aumentamos o tamanho */
+    font-size: 3.5rem; 
+    
+    /* Mantendo a cor original */
+    color: var(--cor-azul-escuro);
+    
+    /* Remove o peso negrito padrão, pois a fonte já é estilizada */
+    font-weight: normal; 
+    
+    /* Ajuste fino de posicionamento (opcional, depende de como a fonte renderiza) */
+    line-height: 1;
+
+    margin-top: 5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--cor-texto-padrao);
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--cor-amarelo-dourado);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--cor-azul-escuro);
+}
+
+
+/* ----------------------------------- */
+/* 4. Seção Principal (Hero)           */
+/* ----------------------------------- */
+.hero {
+    background: var(--cor-azul-escuro);
+    color: var(--cor-fundo-claro);
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: var(--cor-amarelo-dourado);
+    color: var(--cor-texto-padrao);
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: var(--cor-marrom-escuro);
+    color: var(--cor-fundo-claro);
+}
+
+/* ----------------------------------- */
+/* 5. Seção Público Alvo (target-section) */
+/* ----------------------------------- */
+
+.target-section {
+    background-color: var(--cor-azul-claro); /* Fundo da seção em azul claro */
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+}
+
+/* Título (em amarelo dourado) */
+.target-title {
+    text-align: left;
+    color: var(--cor-amarelo-dourado); /* Dourado */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Coluna de Informações */
+.target-info {
+    width: 55%;
+    color: var(--cor-azul-escuro); /* Texto em azul escuro */
+}
+
+.target-info p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.target-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.target-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.target-list li::before {
+    content: '•'; 
+    position: absolute;
+    left: 0;
+    color: var(--cor-azul-escuro);
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Bloco de Destaque Azul Escuro */
+.highlight-box {
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-fundo-claro); /* Texto claro no fundo escuro */
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Estilos da Ilustração (Simulação da Imagem) */
+.target-illustration {
+    width: 40%;
+    position: relative;
+    min-height: 400px; 
+}
+
+.illustration-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* Simulação da Forma Circular (Laranja/Dourado) */
+.illustration-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    background: #ffa82e; /* Simulação da cor da imagem */
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+/* ----------------------------------- */
+/* 6. Seção Serviços (SERVICE GRID)    */
+/* ----------------------------------- */
+
+.service-grid {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: var(--cor-azul-claro); /* Fundo azul claro para a seção */
+}
+
+.service-grid h3 {
+    color: var(--cor-azul-escuro); 
+    margin-bottom: 3rem;
+    font-size: 2.5rem; 
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: #fff; /* Fundo branco para os cards */
+    padding: 2rem;
+    border-radius: 20px; /* Arredondado como na imagem */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    text-align: left; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 350px; /* Garante que os cards tenham altura similar */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h4 {
+    color: var(--cor-azul-escuro);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--cor-azul-escuro);
+    flex-grow: 1;
+}
+
+/* ----------------------------------- */
+/* 7. Seção de Contato (Formulário)    */
+/* ----------------------------------- */
+.contact-section {
+    background-color: var(--cor-fundo-claro);
+    padding-bottom: 5rem;
+}
+
+.contact-section h3 {
+    text-align: center;
+    color: var(--cor-azul-escuro);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--cor-azul-escuro);
+    margin-top: 1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* ----------------------------------- */
+/* 8. Rodapé (Footer)                  */
+/* ----------------------------------- */
+footer {
+        background-color: var(--cor-azul-escuro); /* Fundo azul claro para a seção */
+    color: var(--cor-fundo-claro);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--cor-fundo-claro);
+    font-weight: 600;
+    margin-left: 1rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--cor-amarelo-dourado);
+}
+
+.copyright {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+}
+
+
+
+/* ----------------------------------- */
+/* 9. Media Query (Responsividade)     */
+/* ----------------------------------- */
+@media (max-width: 992px) {
+    /* Público Alvo */
+    .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .target-illustration {
+        width: 100%;
+        min-height: 250px;
+        margin-bottom: 2rem;
+    }
+    .target-illustration .illustration-placeholder::before {
+        width: 250px;
+        height: 250px;
+    }
+    .target-info {
+        width: 100%;
+        text-align: left;
+    }
+    .target-title {
+        text-align: center;
+    }
+
+    /* Navegação */
+    nav { display: none; }
+    .menu-toggle { display: block; }
+    nav.open { /* Estilos de menu aberto... */ }
+    
+    /* Outros ajustes */
+    .hero h2 { font-size: 2.2rem; }
+    .grid { grid-template-columns: 1fr; } 
+    .footer-content {
+        flex-direction: column;
+    }
+    .social-links {
+        margin-top: 1rem;
+    }
+}
+
+/* Estilos para o Menu Hamburguer (usados pelo JS) */
+@media (max-width: 768px) {
+    nav.open {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--cor-fundo-claro);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+    nav.open ul {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    nav.open ul li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+.li-pa{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* ----------------------------------- */
+/* Seção de Parcerias (Estilo Específico) */
+/* ----------------------------------- */
+
+.partners-section {
+    background-color: #e6f2ff; /* Azul bem clarinho do fundo geral (similar à imagem) */
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.section-title-custom {
+    color: #17a2b8; /* Azul turquesa do título "Parcerias" */
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-transform: capitalize;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Permite quebrar linha no mobile */
+}
+
+/* Estilo do Card individual */
+.partner-card {
+    background-color: #f0fcfc; /* Fundo do card (quase branco/menta muito claro) */
+    border-radius: 40px; /* Bordas bem arredondadas como na imagem */
+    padding: 2rem;
+    width: 300px; /* Largura fixa para manter uniformidade */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02); /* Sombra muito suave */
+    transition: transform 0.3s;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Área do Logo */
+.partner-logo-container {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%; /* Círculo perfeito */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    overflow: hidden; /* Garante que a imagem não saia do círculo */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.partner-img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* Título do Parceiro (Laranja/Amarelo) */
+.partner-name {
+    color: #f7a01d; /* Cor laranja dourada da imagem */
+    font-size: 1.4rem;
+    font-weight: 800; /* Extra bold */
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    min-height: 3.4rem; /* Alinha os botões mesmo com títulos de tamanhos diferentes */
+    display: flex;
+    align-items: center;
+}
+
+/* Descrição (Azul Escuro) */
+.partner-desc {
+    color: #0d47a1; /* Azul escuro do texto descritivo */
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Botão "Saiba Mais" (Verde Musgo) */
+.btn-partner {
+    background-color: #4a7036; /* Verde musgo específico da imagem */
+    color: #fff;
+    padding: 0.6rem 2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #3a5829; /* Pequeno detalhe de profundidade */
+    transition: opacity 0.3s;
+}
+
+.btn-partner:hover {
+    opacity: 0.9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .partners-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* ----------------------------------- */
+/* 8. Rodapé (FOOTER - Estilo da Imagem Contato) */
+/* ----------------------------------- */
+#contato-footer {
+    background-color: var(--cor-azul-escuro); /* Azul Escuro Sólido */
+    color: var(--cor-fundo-claro); /* Texto branco/claro */
+    padding: 2rem 0 0;
+    position: relative;
+    overflow: hidden; /* Importante para a nuvem de detalhe (se for implementada) */
+    min-height: 500px;
+}
+
+.footer-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+}
+
+/* Estilo do Logo no Rodapé */
+.footer-logo {
+    margin-bottom: 2rem;
+    align-self: flex-start;
+    padding-top: 1rem;
+}
+
+.logo-img-footer {
+    /* Ajuste o tamanho da sua imagem de logo se necessário */
+    max-height: 80px; 
+}
+
+
+/* Wrapper principal para centralizar as caixas de informação */
+.contact-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    align-self: center; /* Centraliza o wrapper no footer */
+    gap: 3rem;
+}
+
+/* --- Card de Contato Branco --- */
+.contact-card {
+    background-color: #fff;
+    color: var(--cor-texto-padrao); /* Texto escuro dentro da caixa branca */
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    min-width: 55%; /* Ocupa um pouco mais de espaço */
+}
+
+.contact-title {
+    color: var(--cor-azul-escuro);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 2rem;
+    font-size: 0.95rem;
+}
+
+.detail-label {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+.detail-value {
+    font-weight: normal;
+}
+
+/* --- Horário de Funcionamento --- */
+.schedule-box {
+    min-width: 35%; /* Ocupa o espaço restante */
+    text-align: left;
+}
+
+.schedule-title {
+    color: var(--cor-amarelo-dourado); /* Título em Amarelo/Dourado */
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.schedule-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-box ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* --- Barra de Direitos Autorais --- */
+.copyright-bar {
+    width: 100%;
+    background-color: var(--cor-marrom-escuro); /* Cor de destaque (marrom/bronze) */
+    text-align: center;
+    padding: 0.8rem 0;
+    font-size: 0.85rem;
+    margin-top: 2rem;
+}
+
+/* --- Responsividade Mobile (Footer) --- */
+@media (max-width: 768px) {
+    .footer-layout {
+        align-items: center;
+    }
+    
+    .contact-info-wrapper {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        gap: 2rem;
+    }
+
+    .contact-card, .schedule-box {
+        min-width: 90%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        align-items: center;
+    }
+}
