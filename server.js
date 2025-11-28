@@ -18,7 +18,7 @@ const PgSession = pgSimple(session);
 
 // --- Configuração do CORS ---
 app.use(cors({
-    origin: ['http://127.0.0.1:5500', 'http://localhost:5500'],
+    origin: ['http://127.0.0.1:5500', 'http://localhost:5500', 'https://capacitai.vercel.app' ], 
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
@@ -101,4 +101,5 @@ sequelize.sync({ force: true })
             console.log(`🚀 Servidor rodando na porta ${PORT}`);
         });
     })
+
     .catch(err => console.error("❌ Erro ao conectar ao banco:", err));
