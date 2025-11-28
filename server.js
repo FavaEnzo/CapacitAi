@@ -7,9 +7,9 @@ import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import bcrypt from "bcrypt";
 import pg from "pg"; 
-import sequelize from "./api/config/database.js";
-import User from "./api/models/User.js";
-import userRoutes from "./api/routes/UserRoutes.js";
+import sequelize from "./config/database.js";
+import User from "./models/User.js";
+import userRoutes from "./routes/UserRoutes.js";
 
 dotenv.config();
 
@@ -26,7 +26,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// --- Configuração da Sessão no Banco ---
 const pgPool = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false } 
@@ -42,14 +41,13 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24, // 1 dia
+        maxAge: 1000 * 60 * 60 * 24, 
         httpOnly: true, 
-        secure: false, // Em localhost é false
+        secure: false, 
         sameSite: 'lax' 
     }
 }));
 
-// --- Configuração do Passport (Login) ---
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -82,7 +80,6 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-// --- Rotas ---
 app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {
@@ -91,15 +88,12 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-// --- A MÁGICA ACONTECE AQUI ---
-// O force: true apaga a tabela velha e cria a nova com a coluna Email
 sequelize.sync({ force: true }) 
     .then(() => {
-        console.log("⚠️ TABELA RECIADA! (O force: true está ativo)");
-        console.log("✅ Banco Sincronizado!");
+        console.log("Banco Sincronizado!");
         app.listen(PORT, () => {
-            console.log(`🚀 Servidor rodando na porta ${PORT}`);
+            console.log(`Servidor rodando na porta ${PORT}`);
         });
     })
 
-    .catch(err => console.error("❌ Erro ao conectar ao banco:", err));
+    .catch(err => console.error("Erro ao conectar ao banco:", err));
