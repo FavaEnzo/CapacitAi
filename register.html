@@ -1,4 +1,5 @@
-<div id="register-modal" class="modal" style="display: block;"> <div class="modal-content">
+<div id="login-modal" class="modal"> 
+    <div class="modal-content">
         <span class="close-btn">&times;</span>
         
         <div class="login-container">
@@ -11,26 +12,29 @@
 
             <div class="right-panel">
                 <div class="form-box">
-                    <h2 style="margin-bottom: 20px; color: var(--cor-azul-escuro);">Criar Conta</h2>
+                    <h2 style="margin-bottom: 20px; color: #024b8a;">Criar Conta</h2>
 
-                    <form onsubmit="event.preventDefault(); alert('Cadastro simulado com sucesso!');">
-                        <label for="reg-nome">Nome Completo</label>
-                        <input type="text" id="reg-nome" placeholder="Seu nome" required>
+                    <form id="form-cadastro" autocomplete="off">
+                        <label for="reg-nome">Nome</label>
+                        <input type="text" id="reg-nome" placeholder="Seu primeiro nome" required autocomplete="off">
+
+                        <label for="reg-sobrenome">Sobrenome</label>
+                        <input type="text" id="reg-sobrenome" placeholder="Seu sobrenome" required autocomplete="off">
 
                         <label for="reg-email">Email</label>
-                        <input type="email" id="reg-email" placeholder="Seu melhor email" required>
+                        <input type="email" id="reg-email" placeholder="Seu melhor email" required autocomplete="new-password">
 
                         <label for="reg-senha">Senha</label>
-                        <input type="password" id="reg-senha" placeholder="Crie uma senha" required>
+                        <input type="password" id="reg-senha" placeholder="Crie uma senha" required autocomplete="new-password">
 
                         <label for="reg-senha-confirm">Confirmar Senha</label>
-                        <input type="password" id="reg-senha-confirm" placeholder="Confirme a senha" required>
+                        <input type="password" id="reg-senha-confirm" placeholder="Confirme a senha" required autocomplete="new-password">
 
                         <button type="submit" class="btn-login">Cadastrar</button>
 
-                        <p class="register-text" style="margin-top: 15px; font-size: 0.9rem;">
+                        <p class="register-text">
                             Já tem uma conta? 
-                            <a href="#" id="link-para-login" style="color: var(--cor-azul-escuro); font-weight: bold;">Fazer Login</a>
+                            <a href="#" id="link-para-login" style="font-weight: bold;">Fazer Login</a>
                         </p>
                     </form>
                 </div>

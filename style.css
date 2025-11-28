@@ -102,7 +102,8 @@ header .container {
 }
 
 .hero-logo span, .footer-logo span {
-    color: var(--cor-amarelo-dourado); /* Parte "Ai" amarela */
+    color: var(--cor-amarelo-dourado);
+    font-family: 'Breathing', cursive; /* Parte "Ai" amarela */
 }
 
 .hero p {
@@ -1020,4 +1021,154 @@ footer p {
 .btn-login:hover {
     background: var(--cor-marrom-escuro);
     color: #fff;
+
+}
+
+.home-intro-section {
+    background-color: var(--cor-azul-claro);
+    /* Adiciona mais espaço no topo e garante que ocupe uma boa área */
+    padding: 3rem 0 6rem; 
+    min-height: 80vh; 
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.home-intro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem; /* Bom espaçamento entre a imagem e o texto */
+}
+
+/* Coluna da Imagem (Ilustração do Grupo) */
+.home-illustration {
+    flex: 1; 
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efeito da Foto: Borda e Sombra Profunda */
+.group-photo {
+    width: 400px;
+    height: 500px; /* A imagem preenche o contêiner oval */
+    object-fit: cover; /* Corta a imagem para preencher o contêiner sem distorcer */
+    border-radius: 90% / 60%; /* Faz o formato oval. Se a largura e altura forem iguais, será um círculo */
+    /* Borda dourada externa, simulando o efeito da imagem */
+    border: 8px solid var(--cor-amarelo-dourado); 
+    /* Borda branca interna (usando box-shadow como truque) */
+    box-shadow: var(--cor-azul-escuro), /* Borda branca */
+                0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+    transition: transform 0.3s ease;
+    z-index: 2; /* Para garantir que a imagem e suas bordas fiquem acima dos detalhes de canto */
+}
+
+.group-photo:hover {
+    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+}
+
+/* Coluna do Conteúdo de Texto */
+.home-content-text {
+    flex: 1; 
+    max-width: 50%;
+    text-align: left;
+    padding-left: 2rem; 
+}
+
+/* Título Principal */
+.home-main-title {
+    font-size: 2.5rem; /* Título grande e impactante */
+    color: var(--cor-azul-escuro);
+    margin-bottom: 1.5rem;
+    font-weight: 900; /* Extra bold */
+    line-height: 1.1;
+    border-bottom: 3px solid var(--cor-amarelo-dourado); /* Linha de destaque */
+    display: inline-block; /* Ajusta a linha ao tamanho do texto */
+    padding-bottom: 5px;
+}
+
+/* Parágrafos */
+.home-content-text p {
+    font-size: 1rem; /* Fonte confortável para leitura */
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #444;
+    text-align: justify; /* Alinhamento justificado para blocos de texto */
+}
+
+/* Call to Action Button */
+.btn-home-cta {
+    display: inline-block;
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-azul-claro);
+    padding: 1.1rem 3rem; /* Padding generoso */
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1.5rem;
+    border: none;
+    cursor: pointer;
+    /* Sombra que reflete a cor do botão */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-home-cta:hover {
+    background-color: var(--cor-azul-escuro);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: var(--cor-fundo-claro);
+}
+
+
+/* ----------------------------------- */
+/* Responsividade para a seção Home    */
+/* ----------------------------------- */
+@media (max-width: 992px) {
+    .home-intro-section {
+        padding: 2rem 0;
+    }
+    .home-intro-container {
+        flex-direction: column; /* Empilha a imagem e o texto */
+        gap: 3rem;
+    }
+
+    .home-illustration,
+    .home-content-text {
+        max-width: 100%; 
+        flex: none; 
+        padding-left: 0;
+    }
+    
+    .group-photo {
+        max-width: 400px; /* Limita o tamanho no mobile */
+    }
+
+    .home-main-title {
+        font-size: 2.5rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .home-main-title {
+        /* Centraliza o underline no mobile */
+        border-bottom: 3px solid var(--cor-amarelo-dourado);
+        display: block; 
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-content-text p {
+        text-align: justify; 
+    }
+    
+    .btn-home-cta {
+        display: block;
+        margin: 1rem auto 0 auto;
+        width: fit-content;
+    }
 }

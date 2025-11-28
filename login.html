@@ -12,20 +12,23 @@
 
             <div class="right-panel">
                 <div class="form-box">
-                    <h2 style="margin-bottom: 20px; color: var(--cor-azul-escuro);">Entrar</h2>
+                    <h2 style="margin-bottom: 20px; color: #024b8a;">Entrar</h2>
 
-                    <form onsubmit="event.preventDefault(); alert('Login simulado com sucesso!');">
+                    <form id="form-login" autocomplete="off">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Seu primeiro nome" required autocomplete="off">
+
                         <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Digite seu email" required>
+                        <input type="email" id="email" placeholder="Digite seu email" required autocomplete="new-password">
 
                         <label for="senha">Senha</label>
-                        <input type="password" id="senha" placeholder="Digite sua senha" required>
+                        <input type="password" id="senha" placeholder="Digite sua senha" required autocomplete="new-password">
 
                         <button type="submit" class="btn-login">Login</button>
 
-                        <p class="register-text" style="margin-top: 15px; font-size: 0.9rem;">
+                        <p class="register-text">
                             Não tem conta? 
-                            <a href="#" id="link-para-cadastro" style="color: var(--cor-azul-escuro); font-weight: bold;">Criar conta</a>
+                            <a href="#" id="link-para-cadastro" style="font-weight: bold;">Criar conta</a>
                         </p>
                     </form>
                 </div>

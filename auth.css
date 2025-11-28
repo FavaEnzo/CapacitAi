@@ -20,7 +20,7 @@ body {
 .login-container {
     width: 100%;
     height: 100vh;
-    display: flex;
+
 }
 
 /* ----- PAINEL ESQUERDO ----- */
@@ -45,81 +45,64 @@ body {
     100% { transform: translateX(0); opacity: 1; }
 }
 
-.login-logo {
-    width: 150px;
-    margin-bottom: 20px;
+/* Ajustes para o auth.css dentro do modal (se necessário sobrescrever) */
+.login-container {
+    height: auto; /* Remove altura fixa de 100vh se houver */
+    min-height: 500px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.brand {
-    font-family: 'Breathing', cursive;
-    font-size: 3rem;
-    margin-top: 10px;
-}
+/* Painéis de Login/Register */
+.left-panel {
+    flex: 1;
+    background: var(--cor-azul-escuro);
+    color: #fff;
 
-.brand span {
-    color: #d19f2f;
-    font-family: 'Breathing', cursive;
-}
-
-/* ----- PAINEL DIREITO ----- */
-.right-panel {
-    width: 55%;
-    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* ----- FORM BOX ----- */
-.form-box {
-    background: white;
-    width: 380px;
+    flex-direction: column;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-.form-box h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #024b8a;
+.right-panel {
+    flex: 1;
+
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
-label {
-    font-weight: bold;
-    color: #333;
-    margin-top: 1rem;
-    display: block;
+.form-box {
+    width: 100%;
+    max-width: 350px;
 }
 
-input {
+.form-box input {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-
-input:focus {
-    border-color: #0269c0;
-    outline: none;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .btn-login {
     width: 100%;
-    margin-top: 1.5rem;
-    padding: 12px;
-    background: #0269c0;
-    color: white;
+    padding: 10px;
+    background: var(--cor-amarelo-dourado);
     border: none;
-    border-radius: 6px;
-    font-size: 1.1rem;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
     transition: 0.3s;
 }
 
 .btn-login:hover {
-    background: #024b8a;
+    background: var(--cor-marrom-escuro);
+    color: #fff;
+
 }
 
 .register-text {

@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CapacitaAí</title>
+    
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
 </head>
 <body>
-    <!-- Placeholder para o cabeçalho -->
-    <div id="header-placeholder"></div>
+    
+    <header>
+        <div class="container">
+            <h1 class="logo">CapacitaAí</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#publico">Público Alvo</a></li>
+                    <li><a href="#servicos">O Que Oferecemos</a></li>
+                    <li><a href="#contato-footer">Fale Conosco</a></li>
+                    
+                    <li><a href="#" id="open-login">Login</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir Menu">☰</button>
+        </div>
+    </header>
 
-    <!-- Placeholder para o modal de login -->
     <div id="login-placeholder"></div>
 
     <main>
-       <section id="inicio" class="hero">
+        <section id="inicio" class="hero">
     <div class="container">
         <div class="hero-wrapper">
             
@@ -128,7 +144,6 @@
         </section>
     </main>
 
-            <!-- Rodapé -->
         <footer id="contato-footer">
             <div class="container footer-layout">
                 <div class="footer-logo">
@@ -190,10 +205,57 @@
                 <p>&copy; 2025 Projeto Estudantil CapacitAí. Todos os direitos reservados.</p>
             </div>
         </footer>
+
     <script src="script.js"></script>
+    <script src="login.js"></script>
+    <script src="register.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loginBtn = document.getElementById('open-login');
+
+            try {
+                // Pergunta para o servidor quem está logado
+                const response = await fetch('http://localhost:3000/api/users/me', {
+                    credentials: 'include' 
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.authenticated) {
+                        // SE ESTIVER LOGADO: Troca o texto "Login" pelo Nome e Ícone
+                        loginBtn.innerHTML = `
+                            <div; align-items: center; gap: 8px;">
+                                <span style="font-size: 1.2rem;">👤</span> 
+                                <span>${data.user.nome}</span>
+                            </div>
+                        `;
+                        
+                        // Muda o comportamento para LOGOUT
+                        loginBtn.href = "#";
+                        
+                        // Clona o botão para limpar eventos anteriores (de abrir modal)
+                        const newBtn = loginBtn.cloneNode(true);
+                        loginBtn.parentNode.replaceChild(newBtn, loginBtn);
+                        
+                        // Adiciona evento de Logout
+                        newBtn.addEventListener('click', async (e) => {
+                            e.preventDefault();
+                            if(confirm(`Olá ${data.user.nome}, deseja sair da conta?`)) {
+                                await fetch('http://localhost:3000/api/users/logout', { 
+                                    method: 'POST', 
+                                    credentials: 'include' 
+                                });
+                                window.location.reload(); 
+                            }
+                        });
+                    }
+                }
+            } catch (error) {
+                console.log("Visitante não logado.");
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
-
