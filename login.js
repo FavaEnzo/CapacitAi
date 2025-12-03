@@ -6,11 +6,11 @@ document.addEventListener('submit', async (event) => {
         const senha = document.getElementById('senha').value;
 
         try {
-            const response = await fetch('http://localhost:3000/api/users/login', {
+            const response = await fetch('https://capacitai.onrender.com/api/users/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, senha }),
-                credentials: 'include' // Essencial para salvar o cookie
+                credentials: 'include' 
             });
 
             const result = await response.json();

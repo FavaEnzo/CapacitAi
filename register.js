@@ -1,5 +1,4 @@
 document.addEventListener('submit', async (event) => {
-    // Garante que é o form de cadastro
     if (event.target && event.target.id === 'form-cadastro') {
         event.preventDefault();
 
@@ -9,8 +8,7 @@ document.addEventListener('submit', async (event) => {
         const senha = document.getElementById('reg-senha').value;
         const confirmSenha = document.getElementById('reg-senha-confirm').value;
 
-        // IDADE FIXA (Para o backend aceitar o cadastro)
-        const idadeFixa = 18; 
+        const idadeFixa = 18;
 
         if (senha !== confirmSenha) {
             alert("As senhas não coincidem!");
@@ -26,7 +24,7 @@ document.addEventListener('submit', async (event) => {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/api/users/register', {
+            const response = await fetch('https://capacitai.onrender.com/api/users/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData),
@@ -37,7 +35,6 @@ document.addEventListener('submit', async (event) => {
 
             if (response.ok) {
                 alert('Cadastro realizado! Faça login.');
-                // Simula clique para trocar pro login
                 const link = document.getElementById('link-para-login');
                 if(link) link.click();
             } else {
